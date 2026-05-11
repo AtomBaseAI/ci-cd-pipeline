@@ -39,16 +39,16 @@ jobs:
     steps:
       - name: Pull Latest Docker Image
         run: |
-          docker pull atomcodex/aws-cicd:latest
+          sudo docker pull atomcodex/aws-cicd:latest
 
       - name: Stop Existing Container
         run: |
-          docker stop aws-cicd-container || true
-          docker rm aws-cicd-container || true
+         sudo docker stop aws-cicd-container || true
+         sudo docker rm aws-cicd-container || true
 
       - name: Run New Container
         run: |
-          docker run -d \
+          sudo docker run -d \
             --name aws-cicd-container \
             -p 80:80 \
             --restart always \
